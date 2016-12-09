@@ -5,14 +5,24 @@
 
 <struts>
 
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
 
-    <package name="Login" namespace="/" extends="struts-default">
-        <action name="login" class="com.luke.struts.action.Login" method="validateLogin">
-            <result name="success">loginsuccess.jsp</result>
-            <result name="failed">index.jsp</result>
-        </action>
-    </package>
+	<package name="User" namespace="/" extends="struts-default">
+		
+		<global-results>
+			<result name="error">error.jsp</result>
+		</global-results>
+		
+		<action name="login" class="com.luke.struts.action.UserAction" method="login">
+			<result name="success">list.jsp</result>
+			<result name="login">index.jsp</result>
+		</action>
+		
+		
+		
+	</package>
 
 </struts>

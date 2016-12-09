@@ -41,7 +41,7 @@
 		          <div class="col-md-12">
 		          	<div class="control-wrapper">
 		            	<label for="password" class="control-label fa-label"><i class="fa fa-lock fa-medium"></i></label>
-		            	<input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password: 12345">
+		            	<input type="password" class="form-control" name="userpwd" id="userpwd" placeholder="Password: 12345678">
 		            </div>
 		          </div>
 		        </div>
