@@ -80,6 +80,71 @@ public class UserDao extends BaseDao {
 	 * */
 	public int update(User user) {
 		String sql = "update admininfor set username=?, userpwd=? where id=?";
-		return this.executeUpdate(sql, user.getUsername(),user.getUserpwd(),user.getId());
+		try {
+			return this.executeUpdate(sql, user.getUsername(),user.getUserpwd(),user.getId());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}finally {
+			this.closeAll();
+		}
+	}
+
+	/*
+	 * Delete user information
+	 * @author : Luke;
+	 * @date: 12/09/2016
+	 * 
+	 * */
+	public int delete(User user) {
+		String sql = "delete from admininfor where id=?";
+		try {
+			return this.executeUpdate(sql, user.getId());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}finally {
+			this.closeAll();
+		}
+	}
+
+	/*
+	 * Retrun user number
+	 * @author : Luke;
+	 * @date: 12/09/2016
+	 * 
+	 * */
+	public int checkUserName(User user) {
+		String sql = "select count(*) from admininfor where username=?";
+		ResultSet rs = this.executeQuery(sql, user.getUsername());
+		try {
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			this.closeAll();
+		}
+		return 0;
+	}
+
+	/*
+	 * add user
+	 * @author : Luke;
+	 * @date: 12/09/2016
+	 * 
+	 * */
+	public int addUser(User user) {
+		String sql = "INSERT INTO `struts_user`.`admininfor` (`id`, `username`, `userpwd`) VALUES (NULL, ?, ?)";
+		
+		try {
+			return this.executeUpdate(sql, user.getUsername(),user.getUserpwd());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			this.closeAll();
+		}
+		return 0;
 	}
 }

@@ -17,11 +17,36 @@
 		</global-results>
 		
 		<action name="login" class="com.luke.struts.action.UserAction" method="login">
-			<result name="success">list.jsp</result>
-			<result name="login">index.jsp</result>
+			<result name="success" type="redirectAction">list</result>
+			<result name="login">/index.jsp</result>
 		</action>
 		
+		<action name="list" class="com.luke.struts.action.UserAction" method="listUsers">
+			<result name="success">/list.jsp</result>
+		</action>
 		
+		<action name="edit" class="com.luke.struts.action.UserAction" method="toUpdate">
+			<result name="success">/editInfor.jsp</result>
+		</action>
+		
+		<action name="update" class="com.luke.struts.action.UserAction" method="update">
+			<result name="success" type="redirectAction">list</result>
+		</action>
+		
+		<action name="delete" class="com.luke.struts.action.UserAction" method="delete">
+			<result name="success" type="redirectAction">list</result>
+		</action>
+		
+		<action name="exist" class="com.luke.struts.action.UserAction" method="checkUserName">  
+            <result name="ajax-success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result> 
+        </action>
+		
+		<action name="add" class="com.luke.struts.action.UserAction" method="add">
+			<result name="success" type="redirectAction">list</result>
+		</action>
 		
 	</package>
 
