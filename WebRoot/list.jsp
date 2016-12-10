@@ -5,6 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -25,9 +26,14 @@
 
 <body>
 <div class="container">
-    <h1>Table from html</h1>
-    <p>Transform table from an existing, unformatted html table.</p>
-    
+    <h1>User Information List</h1>
+    <p>Transform table from DB data.</p>
+    <div id="toolbar">
+            <div class="form-inline" role="form">
+                <button id="ok"  onclick="javascript:window.location.href='addInfor.jsp'" class="btn btn-danger">Add new User</button>
+            </div>
+    </div>
+    <br/>
     <table data-toggle="table" data-height="460" data-row-style="rowStyle">
         <thead>
         <tr>
@@ -39,25 +45,16 @@
         </thead>
         
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Liu Qiang</td>
-            <td>123456</td>
-            <td><a href="https://github.com/wenzhixin/bootstrap-table">Update</a></td>
-        </tr>
-        <tr id="tr-id-2" class="tr-class-2">
-            <td>2</td>
-            <td>Zhang Ji</td>
-            <td>123456</td>
-            <td><a href="https://github.com/wenzhixin/bootstrap-table">Update</a></td>
-        </tr>
-        <tr id="tr-id-3" class="tr-class-3">
-            <td>3</td>
-            <td>Qi Dongjie</td>
-            <td>123456</td>
-            <td><a href="https://github.com/wenzhixin/bootstrap-table">Update</a></td>
-        </tr>
-    	
+        <s:iterator value="list" id="u">
+        	<tr>
+	            <td>${u.id }</td>
+	            <td>${u.username }</td>
+	            <td>${u.userpwd }</td>
+	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a></td>
+	        </tr>
+        </s:iterator>
+        
+        
         </tbody>
     </table>
 </div>

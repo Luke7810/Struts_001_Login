@@ -24,30 +24,20 @@
 
 <body>
 <div class="container">
-    <h1>Edit User Infromation</h1><br/>
-    <form id="defaultForm" method="post" class="form-horizontal" action="update.action">
-    			<input type="hidden" name="id"value="${user.id }" />
-    
-    			<div class="form-group">
-                    <label class="col-lg-3 control-label">ID</label>
-                    <div class="col-lg-5">
-                        <span>${user.id }</span>
-                    </div>
-                </div>
-    			
-    			
+    <h1>Add User Infromation</h1><br/>
+    <form id="defaultForm" method="post" class="form-horizontal" action="add.action">
                 <!-- 下面这个div必须要有，插件根据这个进行添加提示 -->
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Username</label>
                     <div class="col-lg-5">
-                        <input type="text" class="form-control" name="username" value="${user.username }" />
+                        <input type="text" class="form-control" name="username" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Password</label>
                     <div class="col-lg-5">
-                        <input type="password" class="form-control" name="userpwd" value="${user.userpwd }" />
+                        <input type="password" class="form-control" name="userpwd"/>
                     </div>
                 </div>
 
@@ -86,7 +76,26 @@ $(document).ready(function() {
                             min: 4,
                             max: 30,
                             message: '用户名长度必须在4到30之间'
-                        }/*最后一个没有逗号*/
+                        },
+                        threshold :  4 , //有4字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，4字符以上才开始）
+                     	remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                         url: 'exist.action', //验证地址
+                         message: '用户已存在', //提示消息
+                         delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                         type: 'POST'//请求方式
+                         /**自定义提交数据，默认值提交当前input value
+                          *  data: function(validator) {
+                               return {
+                                   password: $('[name="passwordNameAttributeInYourForm"]').val(),
+                                   whatever: $('[name="whateverNameAttributeInYourForm"]').val()
+                               };
+                            }
+                          */
+                     },
+                     regexp: {
+                         regexp: /^[a-zA-Z0-9_\.]+$/,
+                         message: '用户名由数字字母下划线和.组成'
+                     }/*最后一个没有逗号*/
                     }
                 },
                 userpwd: {

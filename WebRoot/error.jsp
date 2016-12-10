@@ -22,12 +22,12 @@
 </head>
 
 <body>
-	<div class="panel panel-success">
-		<div class="panel-heading">Login Success.</div>
+	<div class="panel panel-danger">
+		<div class="panel-heading">Error Page.</div>
 		<div class="panel-body">
 		<ul>
-			<li>Using Struts2 mapping the actions and views.</li>
-			<li>After action check go to this page.</li>
+			<li>We have some error in this system.</li>
+			<li>Please go back to re-login.</li>
 		</ul>
 		</div>
 	</div>

@@ -45,6 +45,31 @@ public class UserService {
 	 * 
 	 * */
 	public int update(User user) {
+		
 		return userDao.update(user);
+	}
+
+	public int delete(User user) {
+		return userDao.delete(user);
+	}
+
+	/*
+	 * check user exist
+	 * @author : Luke;
+	 * @Date: 12/09/2016
+	 * 
+	 * */
+	public int checkUser(User user) {
+		return userDao.checkUserName(user);
+	}
+
+	/*
+	 * add user
+	 * @author : Luke;
+	 * @Date: 12/09/2016
+	 * 
+	 * */
+	public int add(User user) {
+		return userDao.addUser(user);
 	}
 }
