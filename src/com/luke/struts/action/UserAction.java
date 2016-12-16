@@ -164,8 +164,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		String path = request.getRealPath(tempPath);
 		File filePath = new File(path);
 		
-		//System.out.println("*****"+fileFileName);
-		//System.out.println("*****"+path);
+		System.out.println("*****"+fileFileName);
+		System.out.println("*****"+path);
 
 		try {
 			if (fileFileName != null) {
@@ -202,19 +202,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		return "error";
 	}
 	
-	public InputStream getDownload() {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		
-		try {
-			user = userService.getById(user.getId());
-			String filePath = request.getRealPath("")+user.getFilePath().replace("/", "\\");
-			String fielName = user.getFileName();
-			return new FileInputStream(new File(filePath, fielName));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 
 	// ------- All get and set ----------------------
 	public User getUser() {

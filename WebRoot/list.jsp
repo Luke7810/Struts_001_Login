@@ -51,7 +51,7 @@
 	            <td>${u.username }</td>
 	            <td>${u.userpwd }</td>
 	            <s:if test = "#u.fileName !=''" >
-	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a> || <a href="download?id=${u.id }" target="_blank"">Download</a></td>
+	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a> || <a href="download?id=${u.id }&fileName=${u.fileName}" target="_blank"">Download</a></td>
 	            </s:if>
 	            <s:else>
 	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a></td>
