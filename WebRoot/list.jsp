@@ -50,7 +50,13 @@
 	            <td>${u.id }</td>
 	            <td>${u.username }</td>
 	            <td>${u.userpwd }</td>
-	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a> || <a href="download?id=${u.id } target="_blank"">Download</a></td>
+	            <s:if test = "#u.fileName !=''" >
+	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a> || <a href="download?id=${u.id }" target="_blank"">Download</a></td>
+	            </s:if>
+	            <s:else>
+	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a></td>
+	            </s:else>
+	            
 	        </tr>
         </s:iterator>
         
