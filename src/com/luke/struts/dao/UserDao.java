@@ -136,10 +136,10 @@ public class UserDao extends BaseDao {
 	 * 
 	 * */
 	public int addUser(User user) {
-		String sql = "INSERT INTO `struts_user`.`admininfor` (`id`, `username`, `userpwd`) VALUES (NULL, ?, ?)";
+		String sql = "INSERT INTO `struts_user`.`admininfor` (`id`, `username`, `userpwd`, `filePath`, `fileName`) VALUES (NULL, ?, ?, ?, ?)";
 		
 		try {
-			return this.executeUpdate(sql, user.getUsername(),user.getUserpwd());
+			return this.executeUpdate(sql, user.getUsername(),user.getUserpwd(),user.getFilePath(), user.getFileName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

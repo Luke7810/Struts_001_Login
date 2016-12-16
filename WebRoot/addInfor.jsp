@@ -25,7 +25,7 @@
 <body>
 <div class="container">
     <h1>Add User Infromation</h1><br/>
-    <form id="defaultForm" method="post" class="form-horizontal" action="add.action">
+    <form id="defaultForm" method="post" class="form-horizontal" action="add.action" enctype="multipart/form-data">
                 <!-- 下面这个div必须要有，插件根据这个进行添加提示 -->
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Username</label>
@@ -38,6 +38,14 @@
                     <label class="col-lg-3 control-label">Password</label>
                     <div class="col-lg-5">
                         <input type="password" class="form-control" name="userpwd"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Upload File:</label>
+                    <div class="col-lg-5">
+                        <input type="file" name="file"><br/>
+                        <span>请上传以下类型文件 : *.png, *.bmp, *.jpg, *.doc, *.xls</span>
                     </div>
                 </div>
 
