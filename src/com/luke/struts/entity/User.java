@@ -12,6 +12,19 @@ public class User {
 	public User() {
 		super();
 	}
+	
+
+
+	public User(int id, String username, String userpwd, String filePath,
+			String fileName) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.userpwd = userpwd;
+		this.filePath = filePath;
+		this.fileName = fileName;
+	}
+
 
 
 	public User(int id, String username, String userpwd) {

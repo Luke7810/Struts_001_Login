@@ -15,11 +15,11 @@ public class UserDao extends BaseDao {
 	 * 
 	 * */
 	public User login(User u) {
-		String sql = "select id, username, userpwd from admininfor where username=? and userpwd=?";
+		String sql = "select id, username, userpwd, filePath, fileName from admininfor where username=? and userpwd=?";
 		ResultSet rs = this.executeQuery(sql, u.getUsername(), u.getUserpwd());
 		try {
 			if(rs.next()) {
-				return new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+				return new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -36,12 +36,12 @@ public class UserDao extends BaseDao {
 	 * 
 	 * */
 	public List<User> getList() {
-		String sql = "select id, username, userpwd from admininfor";
+		String sql = "select id, username, userpwd, filePath, fileName from admininfor";
 		List<User> list = new ArrayList<User>();
 		ResultSet rs = this.executeQuery(sql);
 		try {
 			while(rs.next()) {
-				list.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
+				list.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,11 +58,11 @@ public class UserDao extends BaseDao {
 	 * 
 	 * */
 	public User getById(int id) {
-		String sql = "select id, username, userpwd from admininfor where id=?";
+		String sql = "select id, username, userpwd, filePath, fileName  from admininfor where id=?";
 		ResultSet rs = this.executeQuery(sql, id);
 		try {
 			if(rs.next()) {
-				return new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+				return new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
