@@ -50,7 +50,7 @@
 	            <td>${u.id }</td>
 	            <td>${u.username }</td>
 	            <td>${u.userpwd }</td>
-	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a></td>
+	            <td><a href="edit?id=${u.id }">Update</a> || <a href="delete?id=${u.id }">Delete</a> || <a href="download?id=${u.id } target="_blank"">Download</a></td>
 	        </tr>
         </s:iterator>
         

@@ -5,6 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -27,6 +28,8 @@
 		<div class="panel-body">
 		<ul>
 			<li>We have some error in this system.</li>
+			<li><s:fielderror/></li>
+			<li><s:actionerror/></li>
 			<li>Please go back to re-login.</li>
 		</ul>
 		</div>

@@ -9,6 +9,9 @@
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 设置文件上传的最大值 必须大于等于maximumSize -->
+	<constant name="struts.multipart.maxSize" value="209715200"></constant>
+	
 
 	<package name="User" namespace="/" extends="struts-default">
 		
@@ -46,6 +49,13 @@
 		
 		<action name="add" class="com.luke.struts.action.UserAction" method="add">
 			<result name="success" type="redirectAction">list</result>
+			<result name="input">error.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="allowedExtensions">png,bmp,jpg,doc,xls</param>
+				<param name="maximumSize">209715200</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			
 		</action>
 		
 	</package>

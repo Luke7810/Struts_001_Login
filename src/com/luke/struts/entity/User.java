@@ -2,9 +2,12 @@ package com.luke.struts.entity;
 
 
 public class User {
-	public int id;
-	public String username;
-	public String userpwd;
+	private int id;
+	private String username;
+	private String userpwd;
+	private String filePath;
+	private String fileName;
+	
 	
 	public User() {
 		super();
@@ -50,6 +53,26 @@ public class User {
 	}
 	public void setUserpwd(String userpwd) {
 		this.userpwd = userpwd;
+	}
+
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+
+	public String getFileName() {
+		return fileName;
+	}
+
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	
 	
